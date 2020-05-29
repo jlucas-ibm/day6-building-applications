@@ -1,0 +1,71 @@
+Cloning "https://github.com/jlucas-ibm/day6-building-applications" ...
+	Commit:	c9e5e1925bd67a814e7185b67ccf47dcaee00fa3 (Create hello-world.py)
+	Author:	jlucas-ibm <63667317+jlucas-ibm@users.noreply.github.com>
+	Date:	Tue May 26 17:52:51 2020 -0500
+Caching blobs under "/var/cache/blobs".
+Getting image source signatures
+Copying blob sha256:fd542ee251592bb3ed566aa42ccf98987a5607b64823720d19d68ae382e48bb0
+Copying blob sha256:23302e52b49d49a0a25da8ea870bc1973e7d51c9b306f3539cd397318bd8b0a5
+Copying blob sha256:9517b97532342906e8304544c9a705f7f3be240b98fec43b97d18b23eae7197c
+Copying blob sha256:fc0a1c1e5719bb16c76e32ae3ddd97b827a51cd2f68ed0608ccebea0391c3549
+Copying blob sha256:cf5693de4d3cdd6f352978b87c8f89ead294eff44938598f57a91cf7a02417d2
+Copying config sha256:e86504c5d5a91792afacbdcf312ea36ace59dc9c3f63333bd03b493c1ea417e4
+Writing manifest to image destination
+Storing signatures
+Generating dockerfile with builder image image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:85f7df07bd2f71aea40b01f91e06377dc12020ac4be63ad9296b4ce7cf2f4ee4
+Replaced Dockerfile FROM image image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:85f7df07bd2f71aea40b01f91e06377dc12020ac4be63ad9296b4ce7cf2f4ee4
+STEP 1: FROM image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:85f7df07bd2f71aea40b01f91e06377dc12020ac4be63ad9296b4ce7cf2f4ee4 AS appimage613f8002bffa45a1b5456c588aecb752
+STEP 2: LABEL "io.openshift.build.commit.date"="Tue May 26 17:52:51 2020 -0500" "io.openshift.build.commit.id"="c9e5e1925bd67a814e7185b67ccf47dcaee00fa3" "io.openshift.build.commit.ref"="master" "io.openshift.build.commit.message"="Create hello-world.py" "io.openshift.build.source-location"="https://github.com/jlucas-ibm/day6-building-applications" "io.openshift.build.image"="image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:85f7df07bd2f71aea40b01f91e06377dc12020ac4be63ad9296b4ce7cf2f4ee4" "io.openshift.build.commit.author"="jlucas-ibm <63667317+jlucas-ibm@users.noreply.github.com>"
+STEP 3: ENV OPENSHIFT_BUILD_NAME="titan-3" OPENSHIFT_BUILD_NAMESPACE="jlucas-apollo" OPENSHIFT_BUILD_SOURCE="https://github.com/jlucas-ibm/day6-building-applications" OPENSHIFT_BUILD_COMMIT="c9e5e1925bd67a814e7185b67ccf47dcaee00fa3"
+STEP 4: USER root
+STEP 5: COPY upload/src /tmp/src
+STEP 6: RUN chown -R 1001:0 /tmp/src
+STEP 7: USER 1001
+STEP 8: RUN /usr/libexec/s2i/assemble
+---> Installing application source ...
+---> Installing all dependencies
+added 50 packages from 37 contributors and audited 50 packages in 1.45s
+found 0 vulnerabilities
+
+---> Building in production mode
+---> Pruning the development dependencies
+audited 50 packages in 0.805s
+found 0 vulnerabilities
+
+/opt/app-root/src/.npm is not a mountpoint
+---> Cleaning the npm cache /opt/app-root/src/.npm
+/tmp is not a mountpoint
+---> Cleaning the /tmp/npm-*
+STEP 9: CMD /usr/libexec/s2i/run
+Getting image source signatures
+Copying blob sha256:35b7a5c4e1b4a84fb05d9c6658572c2b7a9925a270e8f7860c0ae30671c0a57c
+Copying blob sha256:eddcd8d2986daee57d8cd75add7ff3c998e668857847e0f2b3c3d3b7e02a3ab6
+Copying blob sha256:f0f97bb39344256e639831d65c0c9db84aca2e9b0f1507f267b7cc128068fff0
+Copying blob sha256:51a02c3470059a0f01d5afbb9dbf293f92b5f85af84f0b571d47120c2a192186
+Copying blob sha256:86d49b4dab322def75ba50971121b0282cd178bb0c720ae948cdc40cffc69039
+Copying blob sha256:60ef194e7d137ca6a77c376dc2fd7bc745e508cd4d108ca951777383b596219c
+Copying config sha256:e2aafadbbd95608e07034f5c71030dd1f391c8a302f1e223e7226535fd83826e
+Writing manifest to image destination
+Storing signatures
+e2aafadbbd95608e07034f5c71030dd1f391c8a302f1e223e7226535fd83826e
+STEP 10: FROM e2aafadbbd95608e07034f5c71030dd1f391c8a302f1e223e7226535fd83826e
+STEP 11: RUN python hello-world.py
+Hello, world!
+STEP 12: FROM e2aafadbbd95608e07034f5c71030dd1f391c8a302f1e223e7226535fd83826e
+STEP 13: COMMIT temp.builder.openshift.io/jlucas-apollo/titan-3:7db01864
+e2aafadbbd95608e07034f5c71030dd1f391c8a302f1e223e7226535fd83826e
+e2aafadbbd95608e07034f5c71030dd1f391c8a302f1e223e7226535fd83826e
+
+Pushing image image-registry.openshift-image-registry.svc:5000/jlucas-apollo/titan:latest ...
+Getting image source signatures
+Copying blob sha256:fd542ee251592bb3ed566aa42ccf98987a5607b64823720d19d68ae382e48bb0
+Copying blob sha256:9517b97532342906e8304544c9a705f7f3be240b98fec43b97d18b23eae7197c
+Copying blob sha256:23302e52b49d49a0a25da8ea870bc1973e7d51c9b306f3539cd397318bd8b0a5
+Copying blob sha256:cf5693de4d3cdd6f352978b87c8f89ead294eff44938598f57a91cf7a02417d2
+Copying blob sha256:fc0a1c1e5719bb16c76e32ae3ddd97b827a51cd2f68ed0608ccebea0391c3549
+Copying blob sha256:60ef194e7d137ca6a77c376dc2fd7bc745e508cd4d108ca951777383b596219c
+Copying config sha256:e2aafadbbd95608e07034f5c71030dd1f391c8a302f1e223e7226535fd83826e
+Writing manifest to image destination
+Storing signatures
+Successfully pushed image-registry.openshift-image-registry.svc:5000/jlucas-apollo/titan@sha256:1653465cffb5a44bfcce69dd9e812bc8c39290779bc847d6ed9425a954c63526
+Push successful
